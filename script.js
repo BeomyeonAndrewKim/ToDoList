@@ -9,7 +9,6 @@ document.querySelector('#add-button').addEventListener('click', e => {
     if (inputEl.value === '') {
         return;
     }
-
     inputEl.value = '';
 
     itemEl.addEventListener('click', e => {
@@ -22,7 +21,7 @@ document.querySelector('#add-button').addEventListener('click', e => {
 
     const removeButtonEl = document.createElement('div');
     itemEl.appendChild(removeButtonEl);
-    removeButtonEl.textContent = 'x';
+    // removeButtonEl.textContent = 'x';
 
     removeButtonEl.addEventListener('click', e => {
         listEl.removeChild(itemEl);
