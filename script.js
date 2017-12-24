@@ -4,10 +4,11 @@ const listEl = document.querySelector('#todo-list');
 
 document.querySelector('#add-button').addEventListener('click', e => {
     const itemEl = document.createElement('div');
-    itemEl.textContent = inputEl.value;
-    listEl.appendChild(itemEl);
     if (inputEl.value === '') {
-        return;
+        return alert('Please type your job');
+    } else {
+        itemEl.textContent = inputEl.value;
+        listEl.appendChild(itemEl);
     }
     inputEl.value = '';
 
