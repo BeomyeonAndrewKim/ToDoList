@@ -1,15 +1,22 @@
 const addBtn = document.querySelector('#add-button');
 const inputEl = document.querySelector('#todo-input');
 const listEl = document.querySelector('#todo-list');
+inputEl.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        addBtn.click();
+    }
+});
+//input.text Enter키 작동
 
 document.querySelector('#add-button').addEventListener('click', e => {
     const itemEl = document.createElement('div');
     if (inputEl.value === '') {
-        return alert('Please type your job');
+        return false;
     } else {
         itemEl.textContent = inputEl.value;
         listEl.appendChild(itemEl);
-    }
+    } //text빈 상태로 add키 작동하지 않게 하기
     inputEl.value = '';
 
     itemEl.addEventListener('click', e => {
@@ -22,7 +29,6 @@ document.querySelector('#add-button').addEventListener('click', e => {
 
     const removeButtonEl = document.createElement('div');
     itemEl.appendChild(removeButtonEl);
-    // removeButtonEl.textContent = 'x';
 
     removeButtonEl.addEventListener('click', e => {
         listEl.removeChild(itemEl);
